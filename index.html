@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="overskrift">
+        Leander's Vaffelbod
+    </h1>
+    
+    <h2 id="viserAntallKroner">
+        
+    </h2>
+    <h2 id="viserPrisIngredienser">
+        Pris å lage vaffel: 5 NOK
+    </h2>
+    <h2 id="viserVarebeholdning">
+        0
+    </h2>
+    
+    <div class="beholder">
+        <button id="prisNedKnapp">
+            -
+        </button>
+        <h2 id="viserGjeldendePris">
+            Prisen
+        </h2>
+        <button id="prisOppKnapp">
+            +
+        </button>
+    </div>
+    <button class="lageKnapp" onclick="lagVaffel()">
+        Lag vaffel
+    </button>
+<!-- Denne teksten skal vises en kort stund når en vaffel selges -->
+    <h2 id="solgtTekst">
+        Du solgte en vaffel !!!
+    </h2>
+    <script src="script.js"></script>
+</body>
+</html>
