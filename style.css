@@ -3,6 +3,8 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #333;
     padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto Slab', serif;
 }
 
 h1, h2 {
@@ -32,13 +34,45 @@ button {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 26px;
     margin: 4px 2px;
     cursor: pointer;
+    transition: 0.3s;
+    border-radius: 10px;
+
 }
+button:hover {
+    transition: 0.3s;
+    background-color: #3fc9ce;
+    font-weight:bolder;
+}
+.prisOppKnapp   {
+    width: 100px;
+    height: 70px;
+}
+.prisNedKnapp   {
+    width: 100px;
+    height: 70px;
+}
+
 
 #solgtTekst {
     color: green;
     font-size: 24px;
     display: none;
+}
+
+.skrift {
+    text-align: center;
+    padding: 20px;
+    padding-top: 20px;
+    margin-bottom: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.lageKnappPlassering {
+    text-align: center;
+    height: 200px;
 }
