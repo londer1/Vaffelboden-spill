@@ -7,6 +7,7 @@ let viserGjeldenePris = 5;
 // let prisJustering = 5;
 // let num = 5;
 
+
 function lagVaffel() {
     // Deaktiver
     button.disabled = true;
