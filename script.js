@@ -7,7 +7,6 @@ let viserGjeldenePris = 5;
 // let prisJustering = 5;
 // let num = 5;
 
-
 function lagVaffel() {
     // Deaktiver
     button.disabled = true;
@@ -45,14 +44,14 @@ document.getElementById("prisOppKnapp").addEventListener("click", function() {
 document.addEventListener("DOMContentLoaded", function() {
     setInterval(function() {
         forsokSelgVaffel();
-    }, 5000); // Juster intervallet etter behov (5000 ms = 5 sekunder)
+    }, 5000); //(5000 = 5 sekunder)
 });
 
 function forsokSelgVaffel() {
     if (varerPaLager > 0) {
         let salgsSjanse = Math.random() * 100;
 
-        salgsSjanse -= viserGjeldenePris;
+        salgsSjanse -= viserGjeldenePris / 2;
 
         if (salgsSjanse > 0) {
             penger += viserGjeldenePris;
@@ -60,9 +59,8 @@ function forsokSelgVaffel() {
             document.getElementById("viserVarebeholdning").textContent = varerPaLager + " varer på lager";
             document.getElementById("viserAntallKroner").textContent = "Totalkapital: " + penger;
 
-            // Vis salgsprosent
             let salgsprosent = 100 - salgsSjanse;
-            notifi("En vaffel ble solgt! Salgsprosent: " + salgsprosent.toFixed(2) + "%");
+            notifi("En vaffel ble solgt! Sjanse for salget: " + salgsprosent.toFixed(2) + "%");
         } else {
             notifi("Du fikk ikke solgt, vent litt eller senk pris");
         }
@@ -70,7 +68,6 @@ function forsokSelgVaffel() {
         notifi("Lageret er tomt!");
     }
 }
-
 
 function notifi(melding) {
     let notifikasjonPanel = document.getElementById("notifi");
