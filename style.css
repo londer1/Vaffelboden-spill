@@ -24,6 +24,8 @@ h1, h2 {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 button {
@@ -59,10 +61,38 @@ button:hover {
 #solgtTekst {
     color: green;
     font-size: 24px;
-    display: none;
 }
 
 .skrift {
+    text-align: center;
+    /* padding: 20px; */
+    /* padding-top: 20px; */
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;  
+}
+.dapa {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    grid-column: 2;
+    padding:10px;
+    margin: 10px;
+}
+.info {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    grid-column: 1;
+    margin: 10px;
+}
+
+.lageKnappPlassering {
+    text-align: center;
+    height: 200px;
+}
+
+.Notifikasjonspanel{
     text-align: center;
     padding: 20px;
     padding-top: 20px;
@@ -71,8 +101,6 @@ button:hover {
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
 }
-
-.lageKnappPlassering {
-    text-align: center;
-    height: 200px;
+.notifikasjonsstyling {
+    color: green;
 }

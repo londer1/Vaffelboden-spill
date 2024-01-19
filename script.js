@@ -52,7 +52,6 @@ function forsokSelgVaffel() {
     if (varerPaLager > 0) {
         let salgsSjanse = Math.random() * 100;
 
-
         salgsSjanse -= viserGjeldenePris;
 
         if (salgsSjanse > 0) {
@@ -60,15 +59,19 @@ function forsokSelgVaffel() {
             varerPaLager--;
             document.getElementById("viserVarebeholdning").textContent = varerPaLager + " varer på lager";
             document.getElementById("viserAntallKroner").textContent = "Totalkapital: " + penger;
-            console.log("Vafler solgt!");
+            notifi("En vaffel ble solgt!");
         } else {
-            console.log("Vafler ikke solgt denne gangen.");
+            notifi("Du fikk ikke solgt, vent litt eller senk pris");
         }
     } else {
-        console.log("Ingen vafler å selge!");
-    }
+        notifi("Lagret er tomt!");
+        }
 }
 
+function notifi(melding) {
+    let notifikasjonPanel = document.getElementById("notifi");
+    notifikasjonPanel.textContent = melding;
+}
 
 
 
