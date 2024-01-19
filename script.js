@@ -59,14 +59,18 @@ function forsokSelgVaffel() {
             varerPaLager--;
             document.getElementById("viserVarebeholdning").textContent = varerPaLager + " varer på lager";
             document.getElementById("viserAntallKroner").textContent = "Totalkapital: " + penger;
-            notifi("En vaffel ble solgt!");
+
+            // Vis salgsprosent
+            let salgsprosent = 100 - salgsSjanse;
+            notifi("En vaffel ble solgt! Salgsprosent: " + salgsprosent.toFixed(2) + "%");
         } else {
             notifi("Du fikk ikke solgt, vent litt eller senk pris");
         }
     } else {
-        notifi("Lagret er tomt!");
-        }
+        notifi("Lageret er tomt!");
+    }
 }
+
 
 function notifi(melding) {
     let notifikasjonPanel = document.getElementById("notifi");
