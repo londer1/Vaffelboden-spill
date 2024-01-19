@@ -41,3 +41,74 @@ document.getElementById("prisOppKnapp").addEventListener("click", function() {
     viserGjeldenePris++;
     oppdaterPris();
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    setInterval(function() {
+        forsokSelgVaffel();
+    }, 5000); // Juster intervallet etter behov (5000 ms = 5 sekunder)
+});
+
+function forsokSelgVaffel() {
+    if (varerPaLager > 0) {
+        let salgsSjanse = Math.random() * 100;
+
+
+        salgsSjanse -= viserGjeldenePris;
+
+        if (salgsSjanse > 0) {
+            penger += viserGjeldenePris;
+            varerPaLager--;
+            document.getElementById("viserVarebeholdning").textContent = varerPaLager + " varer på lager";
+            document.getElementById("viserAntallKroner").textContent = "Totalkapital: " + penger;
+            console.log("Vafler solgt!");
+        } else {
+            console.log("Vafler ikke solgt denne gangen.");
+        }
+    } else {
+        console.log("Ingen vafler å selge!");
+    }
+}
+
+
+
+
+
+
+// document.getElementById("selgVaffelKnapp").addEventListener("click", function() {
+//     if (varerPaLager > 0) {
+//         penger += viserGjeldenePris;
+//         varerPaLager--;
+//         document.getElementById("viserVarebeholdning").textContent = varerPaLager + " varer på lager";
+//         document.getElementById("viserAntallKroner").textContent = "Totalkapital: " + penger;
+//     } else {
+//         alert("Ingen vafler å selge!");
+//     }
+// });
+
+
+
+
+
+
+
+
+
+// function selg() {
+//     if (varerPaLager > 0) {
+//         varerPaLager--;
+//         penger = penger + kostnad;
+//         updateDisplay();
+//         console.log(penger + " moenymoney");
+//     }
+// }
+// function updateDisplay() {
+
+//     varerPaLagerGebi.textContent = varerPaLager + " vaffler på lager";
+//     moneyGebi.textContent = penger + " kr";
+// }
+
+
+// const varerPaLager = document.getElementById("varerPaLager");
+// const penger = document.getElementById("penger");
+
+// updateDisplay();
