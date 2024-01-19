@@ -6,16 +6,13 @@ body {
     font-family: 'Poppins', sans-serif;
     font-family: 'Roboto Slab', serif;
 }
-
 h1, h2 {
     color: #444;
 }
-
 .overskrift {
     text-align: center;
     font-size: 3rem;
 }
-
 .beholder {
     display: flex;
     justify-content: space-between;
@@ -28,7 +25,6 @@ h1, h2 {
     margin-left: 10px;
     margin-right: 10px;
 }
-
 button {
     background-color: #46dadf;
     color: #444;
@@ -57,13 +53,10 @@ button:hover {
     width: 100px;
     height: 70px;
 }
-
-
 #solgtTekst {
     color: green;
     font-size: 24px;
 }
-
 .skrift {
     text-align: center;
     /* padding: 20px; */
@@ -86,12 +79,21 @@ button:hover {
     grid-column: 1;
     margin: 10px;
 }
-
 .lageKnappPlassering {
     text-align: center;
-    height: 200px;
+    height: 130px;
 }
-
+.lageKnapp{
+    width: 200px;
+    height: 90px;
+}
+.oppgraderinger {
+    text-align: center; 
+}
+.dobbeltjern {
+    width: 527px;
+    height: 70px;
+}
 .Notifikasjonspanel{
     text-align: center;
     padding: 20px;
@@ -104,4 +106,8 @@ button:hover {
 .notifikasjonsstyling {
     margin-top: 70px;
     color: green;
+}
+.notifikasjonsstylingNegativ {
+    margin-top: 70px;
+    color: red;
 }
