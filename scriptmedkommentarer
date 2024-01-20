@@ -1,28 +1,34 @@
-let penger = 100;
-let kostnad = 5;
-let varerPaLager = 0;
-let button = document.querySelector(".lageKnapp");
-let viserGjeldenePris = 5;
-let dobbeltjernOppgradering = false;
-let antallVaflerPerRunde = 1;
+let penger = 100; //startkapitalen
+let kostnad = 5; //kostnad for å lage en vaffel
+let varerPaLager = 0; //hvor mange det er på lager
+let button = document.querySelector(".lageKnapp"); //knappen for å lage vafler
+let viserGjeldenePris = 5; //gjeldende pris for en vaffel
+let dobbeltjernOppgradering = false; //statusen til dobbeltjernoppgraderingen
+let antallVaflerPerRunde = 1; //antall vafler som lages per runde
 
 function lagVaffel() {
+    //deaktiver knappen
     button.disabled = true;
     setTimeout(function () {
+        //aktiver knappen etter 2 sekunder
         button.disabled = false;
     }, 2000);
+    //hvis det er nok penger, oppdater lager og penger
     if (penger >= kostnad) {
         varerPaLager += antallVaflerPerRunde;
         document.getElementById("viserVarebeholdning").textContent = varerPaLager + " vafler på lager";
         penger -= kostnad * antallVaflerPerRunde;
         document.getElementById("viserAntallKroner").textContent = "Totalkapital: " + penger;
     } else {
+        //gi beskjed hvis det ikke er nok penger
         alert("Ikke nok penger til å lage vafler!");
     }
 }
 function oppdaterPris() {
+    //oppdater visningen av gjeldende pris
     document.getElementById("viserGjeldendePris").textContent = viserGjeldenePris + " NOK";
 }
+//eventlisteners for å endre prisen på vaflene
 document.getElementById("prisNedKnapp").addEventListener("click", function() {
     viserGjeldenePris = Math.max(viserGjeldenePris - 1, kostnad);
     oppdaterPris();
@@ -32,15 +38,18 @@ document.getElementById("prisOppKnapp").addEventListener("click", function() {
     oppdaterPris();
 });
 document.addEventListener("DOMContentLoaded", function() {
+    //kjør funksjonen forsokSelgVaffel hvert 5. sekund
     setInterval(function() {
         forsokSelgVaffel();
     }, 5000);
 });
+//funksjon for å forsøke å selge en vaffel
 function forsokSelgVaffel() {
     if (varerPaLager > 0) {
         let salgsSjanse = Math.random() * 100;
         salgsSjanse -= viserGjeldenePris / 2;
         if (salgsSjanse > 0) {
+            //oppdater penger, lager og gi beskjed om vellykket salg
             penger += viserGjeldenePris;
             varerPaLager--;
             document.getElementById("viserVarebeholdning").textContent = varerPaLager + " vafler på lager";
@@ -48,12 +57,15 @@ function forsokSelgVaffel() {
             let salgsprosent = 100 - salgsSjanse;
             notifi("En vaffel ble solgt! Sjanse for salget: " + salgsprosent.toFixed(2) + "%");
         } else {
+            //gi beskjed om mislykket salg
             notifiNegativ("En kunde ombestemte seg, vent litt eller senk pris");
         }
     } else {
+        //gi beskjed om tomt lager
         notifiNegativ("Lageret er tomt, du må lage vafler!");
     }
 }
+//funksjoner for å vise notifikasjoner (positiv og negativ)
 function notifi(melding) {
     let notifikasjonPanel = document.getElementById("notifi");
     notifikasjonPanel.textContent = melding;
@@ -64,6 +76,7 @@ function notifiNegativ(melding) {
     let notifiPanel = document.getElementById("notifi");
     notifiPanel.textContent = "";
 }
+//funksjoner for å vise positive og negative notifikasjoner med rød eller grønn
 function notifi(melding, erPositiv) {
     let notifikasjonPanel = document.getElementById("notifi");
     notifikasjonPanel.textContent = melding;
@@ -76,21 +89,26 @@ function notifiNegativ(melding) {
     notifikasjonPanel.classList.remove("positiv");
     notifikasjonPanel.classList.add("negativ");
 }
+//funksjon for å kjøpe oppgraderinger
 function kjopOppgradering(oppgradering) {
     if (oppgradering === 'dobbeljern' && !dobbeltjernOppgradering) {
         if (penger >= 500) {
+            //ta penger, aktiver oppgradering og oppdater antall vafler per runde
             penger -= 500;
             dobbeltjernOppgradering = true;
             antallVaflerPerRunde = 2;
             document.getElementById("viserAntallKroner").textContent = "Totalkapital: " + penger;
             notifiNegativ("Du har oppgradert til dobbeltjern! Nå kan du lage 2 vafler per runde.");
         } else {
+            //gi beskjed om ikke nok penger
             notifiNegativ("Du har ikke nok penger til å kjøpe denne oppgraderingen.");
         }
     } else if (dobbeltjernOppgradering) {
+        //gi beskjed hvis oppgraderingen allerede er kjøpt
         notifiNegativ("Du har allerede oppgradert til dobbeltjern.");
     }
 }
+//eventlistener for hjelp-knappen som viser hvordan man spiller
 document.getElementById('hjelp').addEventListener('click', function() {
     alert("Velkommen til sjappa mi! Her lager vi vafler! Spillet går ut på å oppgradere, og tjene masse penger, men vær obs, fordi jo mer du selger for, jo lavere skjanse er det for å få solgt, så du må bare være tålmodig! Lykke til :3");
 });
