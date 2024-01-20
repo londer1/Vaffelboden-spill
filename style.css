@@ -81,11 +81,11 @@ button:hover {
 }
 .lageKnappPlassering {
     text-align: center;
-    height: 130px;
 }
 .lageKnapp{
     width: 200px;
-    height: 90px;
+    height: 70px;
+    margin: 15px;
 }
 .oppgraderinger {
     text-align: center; 
@@ -93,6 +93,15 @@ button:hover {
 .dobbeltjern {
     width: 527px;
     height: 70px;
+    margin: 15px;;
+}
+.hjelpp {
+    width: 150px;
+    height: 70px;
+    margin:15px;
+}
+.hjelpPlassering {
+    text-align: center;
 }
 .Notifikasjonspanel{
     text-align: center;
@@ -109,5 +118,12 @@ button:hover {
 }
 .notifikasjonsstylingNegativ {
     margin-top: 70px;
+    color: red;
+}
+.positiv {
+    color: green;
+}
+
+.negativ {
     color: red;
 }
